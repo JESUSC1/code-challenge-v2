@@ -195,6 +195,10 @@ A `permitsByName` lookup dict is built once outside `setAreaInteraction` to avoi
 
 **Stats display** shows total permits, max permits per area, and the name of the top area — each on its own line above the map.
 
+---
+
+## Updated React Map 
+
 ![Updated React Map](./Updated_Map_JC.png)
 
 ---
