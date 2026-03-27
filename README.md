@@ -1,5 +1,3 @@
-# Updated React Map by Jesus Cantu Jr.
-
 ![2026 DataMade Code Challenge](https://github.com/datamade/code-challenge-v2/blob/main/map/static/images/2026-datamade-code-challenge.jpg)
 
 Welcome to the 2026 DataMade code challenge! 👋
@@ -197,7 +195,7 @@ A `permitsByName` lookup dict is built once outside `setAreaInteraction` to avoi
 
 **Stats display** shows total permits, max permits per area, and the name of the top area — each on its own line above the map.
 
-![Updated React Map](/Users/jesuscantu/Documents/code-challenge-v2/Updated_Map_JC.png)
+![Updated React Map](./Updated_Map_JC.png)
 
 ---
 
