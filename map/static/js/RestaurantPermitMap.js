@@ -167,10 +167,14 @@ export default function RestaurantPermitMap() {
         ) : null}
       </MapContainer>
       {loading && <p className="text-muted">Loading...</p>}
-      <p className="text-muted mt-2">
-        Map shading: darker blue indicates more restaurant permits issued in that area.
-        Hover over an area to see details. Click to pin the popup — click again to dismiss.
-      </p>
+      <div className="d-flex justify-content-between mt-2">
+        <p className="text-muted mb-0">
+          Map shading: darker blue indicates more restaurant permits issued in that area.
+        </p>
+        <p className="text-muted mb-0">
+          Hover over an area to see details. Click to pin the popup — click again to dismiss.
+        </p>
+      </div>
     </>
   )
 }
