@@ -95,6 +95,8 @@ Keep in mind that you cannot create a private fork of a public repository on Git
 
 ## Implementation Notes
 
+![Updated Map](Updated_Map_JC.png)
+
 The following documents what was changed to complete each step and the reasoning behind key decisions.
 
 > **Note:** I completed this challenge with the assistance of [Claude Code](https://claude.ai/code). I have a Python background but limited Django experience, so I used it to navigate the framework, understand patterns like serializer context and DRF views, and validate decisions along the way.
