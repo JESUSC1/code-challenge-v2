@@ -75,6 +75,22 @@ In the map component, process the community area and use it to display shapes fo
 
 Start displaying some data! Use the `setAreaInteraction()` method to shade the map according to how many permits it has in a year, making sure that it updates automatically when a new year is selected. In this same method, have each area display a popup during some kind of user interaction. The popup should have some light details to help the user understand what they're looking at.
 
+### Step 6: Submit your work
+
+To submit your work, create a feature branch for your code, commit your changes, push your commits up to your fork, and open up a pull request against main. Finally, drop a link to your pull request in your application.
+
+_Note: If you would prefer to keep your code challenge private, please share access with the following members of DataMade on GitHub:_
+
+| Member    | GitHub Account                   |
+| --------- | -------------------------------- |
+| Hannah    | https://github.com/hancush       |
+| Derek     | https://github.com/derekeder     |
+| Monkruman | https://github.com/antidipyramid |
+| Xavier    | https://github.com/xmedr         |
+| Hayley    | https://github.com/haowens       |
+
+Keep in mind that you cannot create a private fork of a public repository on GitHub, so you’ll need to [follow these instructions](https://gist.github.com/0xjac/85097472043b697ab57ba1b1c7530274) to create a private copy of the repo.
+
 ---
 
 ## Implementation Notes
@@ -177,24 +193,7 @@ A `permitsByName` lookup dict is built once outside `setAreaInteraction` to avoi
 
 **Stats display** shows total permits, max permits per area, and the name of the top area — each on its own line above the map.
 
----
-
-### Step 6: Submit your work
-
-To submit your work, create a feature branch for your code, commit your changes, push your commits up to your fork, and open up a pull request against main. Finally, drop a link to your pull request in your application.
-
-_Note: If you would prefer to keep your code challenge private, please share access with the following members of DataMade on GitHub:_
-
-| Member    | GitHub Account                   |
-| --------- | -------------------------------- |
-| Hannah    | https://github.com/hancush       |
-| Derek     | https://github.com/derekeder     |
-| Monkruman | https://github.com/antidipyramid |
-| Xavier    | https://github.com/xmedr         |
-| Hayley    | https://github.com/haowens       |
-
-Keep in mind that you cannot create a private fork of a public repository on GitHub, so you’ll need to [follow these instructions](https://gist.github.com/0xjac/85097472043b697ab57ba1b1c7530274) to create a private copy of the repo.
-
+![2026 DataMade Code Challenge Updates](Image.png)
 ---
 
 ## Data Observations
