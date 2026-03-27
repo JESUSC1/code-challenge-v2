@@ -83,6 +83,10 @@ export default function RestaurantPermitMap() {
     return communityAreaColors[0]
   }
 
+  function toTitleCase(str) {
+    return str.toLowerCase().replace(/\b\w/g, (c) => c.toUpperCase())
+  }
+
   function setAreaInteraction(feature, layer) {
     const areaName = feature.properties.community
     // ?? 0 fallback handles areas present in GeoJSON but missing from the API response
@@ -96,7 +100,7 @@ export default function RestaurantPermitMap() {
 
     // autoClose: false and closeOnClick: false allow multiple popups to stay open simultaneously
     layer.bindPopup(
-      `<b>${areaName}</b><br>Permits: ${numPermits.toLocaleString()} (${share}% of total)`,
+      `<b>${areaName}</b><br>Restaurant Permits: ${numPermits.toLocaleString()} (${share}% of yearly total)<br>Year: ${year}`,
       { autoClose: false, closeOnClick: false }
     )
 
@@ -145,7 +149,7 @@ export default function RestaurantPermitMap() {
       </p>
       {topArea && (
         <p className="fs-4">
-          Area with the most permits: {topArea}
+          Area with the most permits: {topArea ? toTitleCase(topArea) : ""}
         </p>
       )}
       <MapContainer
