@@ -99,7 +99,7 @@ Date: 03-26-2026
 
 The following documents what was changed to complete each step and the reasoning behind key decisions.
 
-> **Note:** I completed this challenge with the assistance of [Claude Code](https://claude.ai/code). I have a Python background but limited Django experience, so I used it to navigate the framework, understand patterns like serializer context and DRF views, and validate decisions along the way.
+> **Note:** I completed this challenge with the assistance of [Claude Code](https://claude.ai/code). I have a Python background but limited Django/React experience, so I used it to navigate the framework, understand patterns like serializer context and DRF views, and validate decisions along the way.
 
 ### Step 1: Supplement the community area GeoJSON data
 
