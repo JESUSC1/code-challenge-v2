@@ -197,6 +197,16 @@ Keep in mind that you cannot create a private fork of a public repository on Git
 
 ---
 
+## Data Observations
+
+Across all years, the same community areas — particularly **Near North Side** and other centrally located neighborhoods — consistently receive the majority of new restaurant permits. These areas correspond to Chicago's more affluent corridors, where capital investment is concentrated and new establishments open at a higher rate.
+
+The contrast with areas on the west and south sides is visible year over year: lighter shading persists regardless of the year selected, suggesting those communities see comparatively little new restaurant activity. This pattern reflects broader economic inequality in the city — the permit data is one signal of where investment flows and where it doesn't.
+
+This is worth keeping in mind when interpreting the map, and reinforces why normalized shading would be a more honest representation of growth versus absolute volume, see future work.
+
+---
+
 ## Future Work
 
 | Area | Description |
