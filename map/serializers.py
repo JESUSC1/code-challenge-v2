@@ -1,34 +1,20 @@
 from rest_framework import serializers
 
-from map.models import CommunityArea, RestaurantPermit
+from map.models import CommunityArea
 
 
 class CommunityAreaSerializer(serializers.ModelSerializer):
     class Meta:
         model = CommunityArea
-        fields = ["name", "num_permits"]
+        fields = ["area_id", "name", "num_permits"]
 
     num_permits = serializers.SerializerMethodField()
 
     def get_num_permits(self, obj):
         """
-        TODO: supplement each community area object with the number
-        of permits issued in the given year.
-
-        e.g. The endpoint /map-data/?year=2017 should return something like:
-        [
-            {
-                "ROGERS PARK": {
-                    area_id: 17,
-                    num_permits: 2
-                },
-                "BEVERLY": {
-                    area_id: 72,
-                    num_permits: 2
-                },
-                ...
-            }
-        ]
+        Return the number of restaurant permits issued in this community area
+        for the selected year. The view pre-computes counts in a single query
+        and passes them via serializer context to avoid N+1 queries.
         """
-
-        pass
+        counts = self.context.get("counts", {})
+        return counts.get(str(obj.area_id), 0)
