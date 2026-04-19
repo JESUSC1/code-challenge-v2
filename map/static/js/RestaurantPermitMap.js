@@ -43,9 +43,6 @@ export default function RestaurantPermitMap() {
 
   const [currentYearData, setCurrentYearData] = useState([])
   const [year, setYear] = useState(2026)
-  const [totalPermits, setTotalPermits] = useState(0)
-  const [maxNumPermits, setMaxNumPermits] = useState(0)
-  const [topArea, setTopArea] = useState(null)
   const [loading, setLoading] = useState(false)
 
   const yearlyDataEndpoint = `/map-data/?year=${year}`
@@ -57,17 +54,16 @@ export default function RestaurantPermitMap() {
       .then((res) => res.json())
       .then((data) => {
         setCurrentYearData(data)
-        const counts = data.map((area) => area.num_permits)
-        setTotalPermits(counts.reduce((a, b) => a + b, 0))
-        // Guard against empty array: Math.max() with no args returns -Infinity
-        const max = Math.max(...counts, 0)
-        setMaxNumPermits(max)
-        const top = data.find((area) => area.num_permits === max)
-        setTopArea(top ? top.name : null)
       })
       .catch((err) => console.error("Failed to load map data", err))
       .finally(() => setLoading(false))
   }, [yearlyDataEndpoint])
+
+  const counts = currentYearData.map((area) => area.num_permits)
+  const totalPermits = counts.reduce((a, b) => a + b, 0)
+  // Guard against empty array: Math.max() with no args returns -Infinity
+  const maxNumPermits = Math.max(...counts, 0)
+  const topArea = currentYearData.find((area) => area.num_permits === maxNumPermits)?.name ?? null
 
   // Pre-build lookup map so setAreaInteraction doesn't call .find() per feature
   const permitsByName = Object.fromEntries(
