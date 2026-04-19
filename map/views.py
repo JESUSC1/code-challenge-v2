@@ -2,11 +2,13 @@ import os
 
 from django.shortcuts import render
 from django.views.generic import TemplateView
+from django.db.models import Count
 
+from rest_framework import status
 from rest_framework.views import APIView
 from rest_framework.response import Response
 
-from map.models import CommunityArea
+from map.models import CommunityArea, RestaurantPermit
 from map.serializers import CommunityAreaSerializer
 
 
@@ -16,11 +18,29 @@ class Home(TemplateView):
 
 class MapDataView(APIView):
     def get(self, request):
+        year = request.query_params.get("year")
+        if not year:
+            return Response(
+                {"error": "year query parameter is required"},
+                status=status.HTTP_400_BAD_REQUEST,
+            )
+
+        # Single aggregation query groups all permits by area for the selected year
+        # Result is sored in a dict for serrializer lookups to avoid N+1 queries
+        permit_counts = (
+            RestaurantPermit.objects.filter(issue_date__year=year)
+            .values("community_area_id")
+            .annotate(count=Count("id"))
+        )
+        counts_by_area = {
+            item["community_area_id"]: item["count"] for item in permit_counts
+        }
+
         community_areas = CommunityArea.objects.all()
         serializer = CommunityAreaSerializer(
             community_areas,
             many=True,
-            context={"year": request.query_params.get("year")},
+            context={"counts": counts_by_area},
         )
         return Response(serializer.data)
 
